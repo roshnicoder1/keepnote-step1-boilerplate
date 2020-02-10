@@ -13,5 +13,55 @@
 		 button. Handle errors like empty fields -->
 
 	<!-- display all existing notes in a tabular structure with Id, Title,Content,Status, Created Date and Action -->
+
+<form action="saveNote" method="post">
+<table>
+<tr>
+<td><label>Note id</label></td>
+<td><input type="text" name="noteId"/></td>
+</tr>
+<tr>
+<td><label>Note Title</label></td>
+<td><input type="text" name="noteTitle"/></td>
+</tr>
+<tr>
+<tr>
+<td><label>Note Content</label></td>
+<td><input type="text" name="noteContent"/></td>
+</tr>
+<tr>
+<td><label>Note Status</label></td>
+<td><input type="text" name="noteStatus"/></td>
+</tr>
+<tr>
+<td><input type="submit" value="Add Note" ></td>
+</tr>
+</table>
+</form>
+
+	<!-- display all existing notes in a tabular structure with Id, Title,Content,Status, Created Date and Action -->
+<table border="1">
+<tr>
+<td>Note id</td>
+<td>Note Title</td>
+<td>Note Content</td>
+<td>Note Status</td>
+<td>Note Created Time</td>
+</tr>
+<c:forEach items="${noteList}" var="note"> 
+ <form action="deleteNote" method="get"> 
+<tr>
+<td><input type="text" name="noteId" value="${note.noteId}"/></td>
+
+<td>${note.noteTitle}</td>
+<td>${note.noteContent}</td>
+<td>${note.noteStatus}</td>
+<td>${note.createdAt}</td>
+<td><input type="submit" value="delete"/></td>
+</tr>
+</form>
+</c:forEach>
+</table>
+
 </body>
 </html>
